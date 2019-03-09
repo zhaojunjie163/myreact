@@ -13,6 +13,23 @@ const defaultProps = {
 
 class MyComponent extends Component {
 
+
+    componentWillMount(){
+        console.log('Will Mount');
+    }
+
+    componentDidMount(){
+        console.log('Did Mount');
+    }
+
+    componentWillUpdate(nextProps, nextState){
+        // console.log(this.props,this.state, nextProps, nextState);
+    }
+
+    componentDidUpdate(prevProps, prevState){
+        console.log(this.props,this.state, prevProps, prevState);
+    }
+
     constructor(props) {
         super(props);
         this.state ={
@@ -25,7 +42,6 @@ class MyComponent extends Component {
         const {title, name , onClick} = this.props; // passed from parent
 
         return <div className="App">
-            <h1>this is a component dropped from another component</h1>
              <h2>
                  Title : {title}
              </h2>
