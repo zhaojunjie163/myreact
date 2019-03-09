@@ -7,6 +7,10 @@ const propTypes = {
     onclick: PropTypes.func
 }
 
+const defaultProps = {
+    name: 'This is default name'
+}
+
 class MyComponent extends Component {
 
     constructor(props) {
@@ -34,5 +38,6 @@ class MyComponent extends Component {
 
 }
 MyComponent.propTypes = propTypes;
+MyComponent.defaultProps = defaultProps;
 
 export default MyComponent;
