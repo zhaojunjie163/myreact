@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
+import MyComponent from './MyComponent'
 
 class App extends Component {
 
@@ -16,6 +17,11 @@ class App extends Component {
         return <div className="App">
             <h1>{this.state.title}</h1>
             <div onClick={this.onClick}>Click here!</div>
+            <MyComponent
+                title= 'this is pass from parent'
+                name= 'junjie'
+                onClick = {this.onClick}
+            />
         </div>;
     }
 
