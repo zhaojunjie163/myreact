@@ -22,6 +22,8 @@ class App extends Component {
                 title= {this.state.title}
                 onClick={this.onClick}
             />
+
+            <input value='name'></input>
         </div>;
     }
 

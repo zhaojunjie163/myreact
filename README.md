@@ -3,6 +3,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Steps
 1. npx create-react-app myreact
 2. npm i -S prop-types
+3. npm install --save react-router-dom
 
 ## Available Scripts
 
