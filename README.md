@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Steps
 1. npx create-react-app myreact
-2. 
+2. npm i -S prop-types
 
 ## Available Scripts
 

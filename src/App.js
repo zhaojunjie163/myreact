@@ -6,7 +6,7 @@ class App extends Component {
 
     constructor(props) {
         super(props);
-        this.state ={
+        this.state = {
             title: 'my name'
         };
 
@@ -18,18 +18,18 @@ class App extends Component {
             <h1>{this.state.title}</h1>
             <div onClick={this.onClick}>Click here!</div>
             <MyComponent
-                title= 'this is pass from parent'
-                name= 'junjie'
-                onClick = {this.onClick}
+                title={2}
+                name='junjie'
+                onClick={this.onClick}
             />
         </div>;
     }
 
 
     onClick() {
-       this.setState({
-           title: 'new title'
-       });
+        this.setState({
+            title: 'new title'
+        });
     }
 }
 
