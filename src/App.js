@@ -5,21 +5,25 @@ class App extends Component {
 
     constructor(props) {
         super(props);
-        this.onSubmit = this.onSubmit.bind(this);
+        this.state ={
+            title: 'my name'
+        };
+
+        this.onClick = this.onClick.bind(this);
     }
 
     render() {
         return <div className="App">
-            <form onSubmit={this.onSubmit}>
-                <input ref={input => this.input = input}></input>
-            </form>
-
+            <h1>{this.state.title}</h1>
+            <div onClick={this.onClick}>Click here!</div>
         </div>;
     }
 
-    onSubmit(event) {
-        event.preventDefault();// prevent page from refreshing
-        console.log(this.input.value);
+
+    onClick() {
+       this.setState({
+           title: 'new title'
+       });
     }
 }
 
