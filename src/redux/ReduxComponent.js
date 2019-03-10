@@ -6,24 +6,39 @@ function productReducer(state = [], action) {
     return state;
 }
 
-function userReducer(state ='', action) {
-    return state;
+function userReducer(state = '', action) {
+    switch (action.type) {
+        case 'update' :
+            return action.payload.user;
+        default:
+            return state;
+    }
+}
+
+const updateUserAction = {
+    type: 'update',
+    payload: {
+        user: 'junjie'
+    }
 }
 
 const allProducers = combineReducers({
     products: productReducer,
-    users: userReducer
+    user: userReducer
 })
 
 
-const store = createStore(allProducers, {
-    products: [{name: 'iphone'}],
-    users: 'Mic'
-});
+const store = createStore(
+    allProducers,
+    {
+        products: [{name: 'iphone'}],
+        user: 'Mic'
+    },
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
-
+store.dispatch(updateUserAction);
 console.log(store.getState());
-
 
 
 class ReduxComponent extends Component {
@@ -31,7 +46,7 @@ class ReduxComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            name:'initial name',
+            name: 'initial name',
             title: 'initial title'
 
         };
@@ -41,7 +56,6 @@ class ReduxComponent extends Component {
 
     render() {
         return <div className="App">
-
 
 
         </div>;
