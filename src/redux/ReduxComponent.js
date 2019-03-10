@@ -18,16 +18,19 @@ class ReduxComponent extends Component {
     render() {
         return <div className="App">
             <input onChange={this.onUpdateUser} defaultValue='name'></input>
-            <h1>{this.props.user}</h1>
+            <h1>{this.props.randomProps}</h1>
         </div>;
     }
 
 }
 
-const mapSateToProps = state => ({
-    products : state.products,
-    user: state.user
-});
+const mapSateToProps = (state, props) =>{
+    return {
+        products : state.products,
+        user: state.user,
+        randomProps: `${state.user} ${props.randomProp}`
+    }
+};
 
 const mapDispatchToProps = {
     onUpdateUser : updateUserAction

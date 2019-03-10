@@ -26,7 +26,7 @@ const store = createStore(
 );
 
 //This is the entry point of whole application
-ReactDOM.render(<Provider store ={store}><ReduxComponent /></Provider>, document.getElementById('root'));
+ReactDOM.render(<Provider store ={store}><ReduxComponent randomProp='haha'/></Provider>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
