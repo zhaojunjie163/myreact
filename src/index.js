@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Crud from './crud';
 import * as serviceWorker from './serviceWorker';
+import ReduxComponent from "./redux/ReduxComponent";
 
 
 //This is the entry point of whole application
 
-ReactDOM.render(<Crud />, document.getElementById('root'));
+ReactDOM.render(<ReduxComponent />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

@@ -4,6 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 1. npx create-react-app myreact
 2. npm i -S prop-types
 3. npm install --save react-router-dom
+4. yarn add redux react-redux
 
 ## Available Scripts
 
