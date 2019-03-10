@@ -1,45 +1,26 @@
 import React, {Component} from 'react';
 
-import {createStore} from 'redux';
+import {combineReducers, createStore} from 'redux';
 
-function reducer(state, action) {
-    if(action.type === 'change'){
-        return action.payload.newState;
-    }else if(action.type === 'haha'){
-        return 'haha'
-    }
-
-    return 'state';
+function productReducer(state = [], action) {
+    return state;
 }
 
-const store = createStore(reducer);
-
-
-const action = {
-    type : 'change',
-    payload: {
-        newState: 'New State'
-    }
+function userReducer(state ='', action) {
+    return state;
 }
 
-const action2 = {
-    type : 'haha',
-    payload: {
-        newState: 'HAHA'
-    }
-}
+const allProducers = combineReducers({
+    products: productReducer,
+    users: userReducer
+})
 
-console.log(store.getState());
 
-store.dispatch(action);
+const store = createStore(allProducers);
 
 
 console.log(store.getState());
 
-store.dispatch(action2);
-
-
-console.log(store.getState());
 
 
 class ReduxComponent extends Component {
