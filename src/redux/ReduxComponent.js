@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 import {connect} from 'react-redux';
-import updateUserAction from "./actions/UserAction";
+import {apiRequest, updateUserAction} from "./actions/UserAction";
 
 class ReduxComponent extends Component {
 
@@ -13,6 +13,14 @@ class ReduxComponent extends Component {
     onUpdateUser(event){
         // console.log('here')
        this.props.onUpdateUser(event.target.value) ;
+    }
+
+
+    componentDidMount(){
+        setTimeout(()=> {
+            this.props.onApiRequest();
+        },1500) ;
+
     }
 
     render() {
@@ -33,7 +41,8 @@ const mapSateToProps = (state, props) =>{
 };
 
 const mapDispatchToProps = {
-    onUpdateUser : updateUserAction
+    onUpdateUser : updateUserAction,
+    onApiRequest: apiRequest
 }
 
 

@@ -4,17 +4,20 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 import ReduxComponent from "./redux/ReduxComponent";
 import {Provider} from 'react-redux';
-import {combineReducers, createStore} from 'redux';
+import {applyMiddleware, compose, combineReducers, createStore} from 'redux';
 import productReducer from './redux/reducers/ProductProducers';
 import userReducer from './redux/reducers/UserProducers';
-import {updateUserAction} from './redux/actions/UserAction'; // if not default
-
+import thunk from 'redux-thunk';
 
 const allProducers = combineReducers({
     products: productReducer,
     user: userReducer
 })
 
+const allStoreEnhancer = compose(
+    applyMiddleware(thunk),
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 const store = createStore(
     allProducers,
@@ -22,7 +25,7 @@ const store = createStore(
         products: [{name: 'iphone'}],
         user: 'Mic-haha'
     },
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    allStoreEnhancer
 );
 
 //This is the entry point of whole application
