@@ -16,7 +16,10 @@ const allProducers = combineReducers({
 })
 
 
-const store = createStore(allProducers);
+const store = createStore(allProducers, {
+    products: [{name: 'iphone'}],
+    users: 'Mic'
+});
 
 
 console.log(store.getState());
