@@ -1,73 +1,37 @@
 import React, {Component} from 'react';
 
-import {combineReducers, createStore} from 'redux';
-
-function productReducer(state = [], action) {
-    return state;
-}
-
-function userReducer(state = '', action) {
-    switch (action.type) {
-        case 'update' :
-            return action.payload.user;
-        default:
-            return state;
-    }
-}
-
-const updateUserAction = {
-    type: 'update',
-    payload: {
-        user: 'junjie'
-    }
-}
-
-const allProducers = combineReducers({
-    products: productReducer,
-    user: userReducer
-})
-
-
-const store = createStore(
-    allProducers,
-    {
-        products: [{name: 'iphone'}],
-        user: 'Mic'
-    },
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
-
-store.dispatch(updateUserAction);
-console.log(store.getState());
-
+import {connect} from 'react-redux';
+import updateUserAction from "./actions/UserAction";
 
 class ReduxComponent extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            name: 'initial name',
-            title: 'initial title'
+        this.onUpdateUser = this.onUpdateUser.bind(this);
+    }
 
-        };
-
-        this.onClick = this.onClick.bind(this);
+    onUpdateUser(event){
+        // console.log('here')
+       this.props.onUpdateUser(event.target.value) ;
     }
 
     render() {
         return <div className="App">
-
-
+            <input onChange={this.onUpdateUser} defaultValue='name'></input>
+            <h1>{this.props.user}</h1>
         </div>;
     }
 
-
-    onClick() {
-        this.setState({
-            name: 'new name',
-            title: 'new title'
-        });
-    }
 }
 
-export default ReduxComponent;
+const mapSateToProps = state => ({
+    products : state.products,
+    user: state.user
+});
+
+const mapDispatchToProps = {
+    onUpdateUser : updateUserAction
+}
+
+
+export default connect(mapSateToProps,mapDispatchToProps)(ReduxComponent);
